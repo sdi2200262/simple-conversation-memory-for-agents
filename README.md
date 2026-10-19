@@ -42,8 +42,8 @@ Start a new Codex session after installation.
 ## Use
 
 Ask your agent to log progress, recover context from past conversations, or
-prepare a handoff for future ones. You can also invoke `simple-session-memory`
-directly.
+prepare a handoff for future ones. Ask to archive completed conversations when
+useful. You can also invoke `simple-session-memory` directly.
 
 Write memory on request or through an established workflow's instructions,
 including autonomous workflows. Each checkpoint updates current state and next
@@ -54,27 +54,8 @@ Logs and important supporting files live in dated folders under `.agents/memory/
 linked from `index.md`. An existing project memory location takes precedence.
 For orientation at startup, add an index pointer to `AGENTS.md` or `CLAUDE.md`.
 
-## Archives
-
-Archive completed conversations on request or through your workflow. Each archive
-combines their history into a narrative and keeps important supporting files
-alongside it:
-
-```text
-.agents/memory/archives/
-  archive-2026-10-01-to-10-18/
-    archive-2026-10-01-to-10-18.md
-    archive-2026-10-01-to-10-18-sessions.zip
-    retained-report.md
-```
-
-The ZIP preserves the complete original session folders, logs, and supporting
-files. It is optional when originals remain and required before authorized
-cleanup removes them. Its contents must be verified against the originals first.
-Important files remain available unpacked and linked from the narrative.
-
-The shared `index.md` links sessions and archives, with short monthly summaries
-for orientation.
+Archives condense completed sessions while keeping important supporting files
+and preserving the originals in a verified ZIP before authorized cleanup.
 
 ## License
 
