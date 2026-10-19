@@ -54,8 +54,9 @@ Logs and important supporting files live in dated folders under `.agents/memory/
 linked from `index.md`. An existing project memory location takes precedence.
 For orientation at startup, add an index pointer to `AGENTS.md` or `CLAUDE.md`.
 
-Archives condense completed sessions while keeping important supporting files
-and preserving the originals in a verified ZIP before authorized cleanup.
+You can also ask your agent to archive old memory logs into concise summaries,
+keeping important supporting files alongside them and preserving the originals
+in a ZIP.
 
 ## License
 
