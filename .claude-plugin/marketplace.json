@@ -1,0 +1,28 @@
+{
+  "name": "simple-session-memory-for-agents",
+  "owner": {
+    "name": "CobuterMan"
+  },
+  "description": "Simple session memory for coding agents and autonomous workflows.",
+  "plugins": [
+    {
+      "name": "simple-session-memory",
+      "description": "Conversation memory, transcript recovery, handoffs, and archives for direct or workflow use.",
+      "version": "1.0.0",
+      "author": {
+        "name": "CobuterMan"
+      },
+      "homepage": "https://github.com/sdi2200262/simple-session-memory-for-agents",
+      "repository": "https://github.com/sdi2200262/simple-session-memory-for-agents",
+      "license": "MIT",
+      "source": "./",
+      "category": "productivity",
+      "tags": [
+        "memory",
+        "session",
+        "compaction",
+        "handoff"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+name: Check plugin files
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check plugin metadata
+        run: |
+          python3 - <<'PYTHON'
+          import json
+          from pathlib import Path
+          root = Path.cwd()
+          marketplace = json.loads((root / '.claude-plugin/marketplace.json').read_text())
+          manifests = [json.loads((root / f'.{agent}-plugin/plugin.json').read_text())
+                       for agent in ('claude', 'codex')]
+          for manifest in manifests:
+              entry = next(item for item in marketplace['plugins']
+                           if item['name'] == manifest['name'])
+              for field in ('name', 'version', 'license', 'homepage', 'repository', 'author'):
+                  assert entry[field] == manifest[field], f"Mismatched {field}"
+              assert entry['source'] == './'
+              for folder in manifest['skills']:
+                  assert list((root / folder).glob('*/SKILL.md')), f"Missing skills: {folder}"
+              if 'hooks' in manifest:
+                  assert (root / manifest['hooks']).is_file(), 'Missing hook registration'
+          assert manifests[0]['name'] == manifests[1]['name']
+          print('Marketplace metadata and assistant paths agree.')
+          PYTHON
+      - name: Check skill copies
+        run: diff claude/skills/simple-session-memory/SKILL.md codex/skills/simple-session-memory/SKILL.md
+      - name: Validate manifests
+        run: |
+          python3 -m json.tool .claude-plugin/plugin.json > /dev/null
+          python3 -m json.tool .claude-plugin/marketplace.json > /dev/null
+          python3 -m json.tool .codex-plugin/plugin.json > /dev/null

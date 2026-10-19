@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="485" fill="none" viewBox="0 0 1200 485" role="img" aria-labelledby="diagram-title diagram-description">
+  <title id="diagram-title">Each conversation has its own timeline and memory log</title>
+  <desc id="diagram-description">Two conversation timelines lead to separate dated session folders under .agents/memory/. Ticks mark compactions between context periods; peach dots mark user-requested checkpoints. Conversation one's later checkpoint recovers unlogged earlier work. Conversation two's second period branches separately to a research-report.md file, also listed beside its session log in the folder. Important conversation files are kept beside the log. The shared index links to both session folders.</desc>
+  <defs>
+    <marker id="arrowGreen" markerHeight="8" markerWidth="8" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10">
+      <path fill="#7aab6e" d="m0 0 10 5-10 5z" />
+    </marker>
+    <marker id="arrowGray" markerHeight="8" markerWidth="8" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10">
+      <path fill="#6b6560" d="m0 0 10 5-10 5z" />
+    </marker>
+    <marker id="arrowAmber" markerHeight="8" markerWidth="8" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10">
+      <path fill="#d4a843" d="m0 0 10 5-10 5z" />
+    </marker>
+    <filter id="shadow" width="104%" height="104%" x="-2%" y="-2%">
+      <feDropShadow dx="0" dy="1" flood-opacity=".08" stdDeviation="2" />
+    </filter>
+  </defs>
+  <rect width="1200" height="485" fill="#1a1a1a" rx="16" />
+  <rect width="1168" height="453" x="16" y="16" fill="#f7f5f2" rx="12" />
+  <g transform="translate(0 -50)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <rect x="810" y="100" width="356" height="320" stroke="#c4c0ba" stroke-dasharray="8 4" stroke-width="1.5" rx="12" />
+    <text x="963" y="123" fill="#6b6560" font-family="ui-monospace, Consolas, monospace" font-size="13" text-anchor="middle">.agents/memory/<tspan fill="#d4a843">index.md</tspan></text>
+    <path stroke="#d4a843" stroke-width="1.5" marker-end="url(#arrowAmber)" d="M1060 119h70q12 0 12 12v18q0 12-12 12h-33" />
+    <path stroke="#d4a843" stroke-width="1.5" marker-end="url(#arrowAmber)" d="M1142 143v206q0 12-12 12h-33" />
+
+    <text x="56" y="166" fill="#3d3d3d" font-size="15" font-weight="500">Conversation 1</text>
+    <text x="267" y="136" fill="#6b6560" font-size="13" text-anchor="middle">Context period 1</text>
+    <text x="470" y="136" fill="#6b6560" font-size="13" text-anchor="middle">Period 2</text>
+    <text x="672" y="136" fill="#6b6560" font-size="13" text-anchor="middle">Period 3</text>
+    <path stroke="#7aab6e" stroke-width="3" stroke-linecap="round" d="M180 161h585" />
+    <path stroke="#6b6560" stroke-width="2" d="M375 149v24M570 149v24" />
+    <circle cx="270" cy="161" r="7" fill="#fde8e0" stroke="#c4896a" stroke-width="2" />
+    <circle cx="720" cy="161" r="7" fill="#fde8e0" stroke="#c4896a" stroke-width="2" />
+    <path stroke="#7aab6e" stroke-width="3" marker-end="url(#arrowGreen)" d="M765 161h61" />
+    <rect x="832" y="136" width="262" height="50" fill="#fff8e6" stroke="#d4a843" stroke-width="1.5" filter="url(#shadow)" rx="8" />
+    <text x="963" y="156" fill="#8a7a40" font-family="ui-monospace, Consolas, monospace" font-size="11" text-anchor="middle">session-2026-10-19-001/</text>
+    <text x="963" y="175" fill="#3d3d3d" font-family="ui-monospace, Consolas, monospace" font-size="12" text-anchor="middle">session-2026-10-19-001.md</text>
+    <path stroke="#d4a843" stroke-dasharray="6 3" stroke-width="1.5" marker-end="url(#arrowAmber)" d="M270 179v25h450v-25" />
+    <text x="495" y="230" fill="#8a7a40" font-size="12" text-anchor="middle">Later checkpoint recovers earlier unlogged work</text>
+
+    <text x="56" y="366" fill="#3d3d3d" font-size="15" font-weight="500">Conversation 2</text>
+    <text x="337" y="336" fill="#6b6560" font-size="13" text-anchor="middle">Context period 1</text>
+    <text x="630" y="336" fill="#6b6560" font-size="13" text-anchor="middle">Period 2</text>
+    <path stroke="#7aab6e" stroke-width="3" stroke-linecap="round" d="M180 361h585" />
+    <path stroke="#6b6560" stroke-width="2" d="M495 349v24" />
+    <circle cx="435" cy="361" r="7" fill="#fde8e0" stroke="#c4896a" stroke-width="2" />
+    <path stroke="#d4a843" stroke-dasharray="6 3" stroke-width="1.5" marker-end="url(#arrowAmber)" d="M575 361v43h25" />
+    <rect x="606" y="388" width="188" height="32" fill="#fff8e6" stroke="#d4a843" stroke-width="1.5" filter="url(#shadow)" rx="8" />
+    <text x="700" y="408" fill="#3d3d3d" font-family="ui-monospace, Consolas, monospace" font-size="12" text-anchor="middle">research-report.md</text>
+    <circle cx="685" cy="361" r="7" fill="#fde8e0" stroke="#c4896a" stroke-width="2" />
+    <path stroke="#7aab6e" stroke-width="3" marker-end="url(#arrowGreen)" d="M765 361h61" />
+    <rect x="832" y="336" width="262" height="70" fill="#fff8e6" stroke="#d4a843" stroke-width="1.5" filter="url(#shadow)" rx="8" />
+    <text x="963" y="356" fill="#8a7a40" font-family="ui-monospace, Consolas, monospace" font-size="11" text-anchor="middle">session-2026-10-19-002/</text>
+    <text x="963" y="375" fill="#3d3d3d" font-family="ui-monospace, Consolas, monospace" font-size="12" text-anchor="middle">session-2026-10-19-002.md</text>
+    <text x="963" y="394" fill="#3d3d3d" font-family="ui-monospace, Consolas, monospace" font-size="12" text-anchor="middle">research-report.md</text>
+
+    <text x="600" y="449" fill="#8a7a40" font-size="12" text-anchor="middle">Important files from the conversation are kept beside the log</text>
+
+    <circle cx="260" cy="490" r="6" fill="#fde8e0" stroke="#c4896a" stroke-width="2" />
+    <text x="276" y="495" fill="#6b6560" font-size="12">User-requested checkpoint</text>
+    <path stroke="#6b6560" stroke-width="2" d="M514 480v20" />
+    <text x="530" y="495" fill="#6b6560" font-size="12">Compaction</text>
+    <path stroke="#7aab6e" stroke-width="2" marker-end="url(#arrowGreen)" d="M698 490h38" />
+    <text x="748" y="495" fill="#6b6560" font-size="12">Conversation progresses</text>
+  </g>
+</svg>
