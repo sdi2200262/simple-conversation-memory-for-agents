@@ -5,21 +5,22 @@ description: Read or recover conversation memory, log progress, prepare a handof
 
 # Simple Session Memory
 
-Keep one Markdown log per conversation, useful both to its continuation after
-compaction and to future conversations. Write for an agent that has the log and
-workspace files but none of the conversation in context.
+Keep one Markdown log per conversation so agents can resume work after
+compaction or in future conversations. Write for an agent with access to the log
+and workspace files but no conversation context.
 
 ## Conversation, context period, checkpoint
 
 A **conversation** is the continuing user exchange. It keeps the same log through
-compaction, model changes, and runtime restarts. A genuinely new conversation
-gets a new log, optionally linked to the one it continues.
+compaction, model changes, and runtime restarts. A new conversation gets its own
+log, optionally linked to the log of the conversation it continues.
 
 A **context period** is the portion of work from the conversation's start to its
 first completed compaction, or from one completed compaction to the next. The
-current period remains open. Restarts, model changes, checkpoints, and failed
-compaction attempts do not themselves start a period. Retained messages or
-summaries from earlier periods do not move that earlier work into the new one.
+current period stays open until compaction completes. Restarts, model changes,
+checkpoints, and failed compaction attempts do not start a new period. Retained
+messages or summaries from earlier periods do not move that earlier work into
+the new one.
 
 A **checkpoint** is a log update requested directly or triggered by an established
 workflow. One period can have several checkpoints; one checkpoint can recover
@@ -28,9 +29,9 @@ work from several periods.
 ## Location and identity
 
 Follow an established project memory location; otherwise use `.agents/memory/`
-under the workspace root. Both assistants share it. Read `index.md` first.
-Match the conversation ID and transcript pointers against existing logs before
-creating one; do not assume the newest log belongs to this conversation.
+under the workspace root. Both assistants share this location. Read `index.md`
+first. Match the conversation ID and transcript pointers against existing logs
+before creating one; do not assume the newest log belongs to this conversation.
 
 For a new log, create `session-YYYY-MM-DD-NNN/`, taking the next unused daily
 number starting at `001`. Create that directory without overwriting another
@@ -40,17 +41,18 @@ beside it and link them from the log. Create only files the request needs.
 
 ## Writing a checkpoint
 
-1. Read the existing log and identify what conversation work it covers, including
-   any unlogged remainder of a period that already has an entry.
+1. Read the existing log and identify which work it covers and which work is
+   missing, including gaps in periods that already have entries.
 2. Locate the conversation transcript. Compare its compaction boundaries and
    messages with the log. Recover missing earlier work from the transcript,
-   checking relevant files and Git history for what was actually done. Read long
-   transcripts in bounded portions so recovery itself does not exhaust context.
+   checking relevant files and Git history to confirm what was done. Read long
+   transcripts in small portions so recovery does not exhaust the context window.
 3. Add recovered work under the context period where it happened. Record the
    source: directly observed, reconstructed from transcript, or recovered from a
-   prior log or compaction summary. Summary-only recovery is partial evidence;
-   identify its limits. If a transcript is unavailable or incomplete, record the
-   supported outline and specific gaps instead of inventing a complete history.
+   prior log or compaction summary. Treat recovery based only on summaries as
+   partial evidence and identify its limits. If a transcript is unavailable or
+   incomplete, record the supported outline and specific gaps instead of inventing
+   a complete history.
    Do not invent period numbers when boundaries cannot be established.
 4. Extend the current period's record and preserve accurate earlier history.
    Correct demonstrated errors explicitly. Refresh Current state and Next steps
@@ -61,13 +63,14 @@ beside it and link them from the log. Create only files the request needs.
 
 Record user requirements, work and findings, decisions with reasons, useful
 verification results, unresolved issues, and concrete next actions. Distinguish
-proposed work from completed work. Cite relevant paths or commits; memory is a
-dated account, and current files remain the source for technical decisions.
+proposed work from completed work. Cite relevant paths or commits. Treat memory
+as a dated account and base technical decisions on current files.
 Keep credentials and unnecessary personal information out of the log.
 
 ## Log format
 
-Use this shape, adapting the prose and omitting inapplicable optional fields:
+Use this template, adapting the prose and omitting optional fields that do not
+apply:
 
 ```markdown
 ---
@@ -99,17 +102,18 @@ Concrete next actions with the paths and details needed to continue.
 
 Add another period heading only when needed. For uncertain boundaries, use
 `### Earlier work (context boundaries uncertain)` with the known range and gaps.
-Coverage describes work accounted for, not the time the checkpoint was written.
-Extend it only as supported; name any holes within the range. Add further source
-notes where one period combines direct and reconstructed accounts.
+Coverage identifies the work recorded, rather than when the checkpoint was
+written. Extend it only when supported by evidence; name any gaps within the
+range. Add source notes where one period combines direct and reconstructed
+accounts.
 
 ## Index
 
-Keep `index.md` concise: a Sessions table with linked log, date, and one-sentence
-summary, newest first; an Archives table with linked narrative, date range, and
-summary; and monthly Appendices for significant outcomes and durable working
-knowledge. Add archive and appendix sections when needed. Detailed history and
-working state belong in the logs and archives.
+Keep `index.md` concise. Use a Sessions table with a link to each log, its date,
+and a one-sentence summary, newest first. When needed, add an Archives table
+with links to archive narratives, date ranges, and summaries. Add monthly
+Appendices for significant outcomes and knowledge useful to future work.
+Keep detailed history and working state in the logs and archives.
 
 ## Archival
 
@@ -125,9 +129,9 @@ archives/
     retained-report.md
 ```
 
-The main narrative and ZIP share the archive directory's stem. Supporting files
-appear only when useful; the ZIP is optional while original sessions remain,
-and required before removing them.
+The main narrative and ZIP share the archive directory's stem. Include supporting
+files only when useful. The ZIP is optional while original sessions remain and
+required before removing them.
 
 1. Read the selected logs and all supporting files in their directories.
    Synthesize a coherent history preserving outcomes, decisions and reasons,
@@ -142,11 +146,11 @@ and required before removing them.
    selected session directories, with their original logs and every supporting
    file, using paths relative to the memory root. Preserve the source files
    unchanged. Record the ZIP filename and included sessions in the narrative.
-4. Before any source removal, verify the ZIP can be read and its complete path
-   inventory and file contents match the source directories. A successful ZIP
-   command alone is insufficient. If preservation or verification fails, retain
-   the originals and report the problem. The ZIP preserves the original record;
-   the narrative and unpacked attachments provide convenient access.
+4. Before removing source directories, verify the ZIP can be read and lists the
+   same paths and contains the same file contents as the source directories.
+   A successful ZIP command alone is insufficient. If preservation or verification
+   fails, retain the originals and report the problem. The ZIP preserves the
+   original record; the narrative and unpacked attachments provide convenient access.
 5. Replace the selected session rows in the index with a linked archive entry.
    Add a short summary under the covered month or months in Appendices, capturing
    milestones and durable observations. Retain the source-session listing in the
@@ -155,4 +159,4 @@ and required before removing them.
    cleanup, after verifying the ZIP, narrative, attachments, and index. Otherwise
    keep them. Report the archive path, ZIP status, and whether originals remain.
 
-Archival does not require a separate agent, but can be offloaded to subagents for efficiency.
+You may delegate archival to subagents.

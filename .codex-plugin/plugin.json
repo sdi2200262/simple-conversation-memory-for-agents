@@ -1,7 +1,7 @@
 {
   "name": "simple-session-memory",
-  "description": "Conversation memory, transcript recovery, handoffs, and archives for direct or workflow use.",
-  "version": "1.0.0",
+  "description": "Save progress, recover context, prepare handoffs, and archive completed conversations on request or through an established workflow.",
+  "version": "1.0.1",
   "author": {
     "name": "CobuterMan"
   },

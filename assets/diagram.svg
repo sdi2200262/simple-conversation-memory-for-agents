@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="485" fill="none" viewBox="0 0 1200 485" role="img" aria-labelledby="diagram-title diagram-description">
   <title id="diagram-title">Each conversation has its own timeline and memory log</title>
-  <desc id="diagram-description">Two conversation timelines lead to separate dated session folders under .agents/memory/. Ticks mark compactions between context periods; peach dots mark user-requested checkpoints. Conversation one's later checkpoint recovers unlogged earlier work. Conversation two's second period branches separately to a research-report.md file, also listed beside its session log in the folder. Important conversation files are kept beside the log. The shared index links to both session folders.</desc>
+  <desc id="diagram-description">Two conversation timelines lead to separate dated session folders under .agents/memory/. Ticks mark compactions between context periods; peach dots mark user-requested checkpoints. A later checkpoint in conversation one recovers earlier unlogged work. Conversation two produces research-report.md in its second period and stores it beside the log. The shared index links to both session folders.</desc>
   <defs>
     <marker id="arrowGreen" markerHeight="8" markerWidth="8" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10">
       <path fill="#7aab6e" d="m0 0 10 5-10 5z" />

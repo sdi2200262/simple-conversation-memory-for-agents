@@ -1,8 +1,7 @@
 # Simple session memory for agents
 
-A skill for Claude Code and Codex that keeps a simple memory structure with a Markdown
-log per conversation, across compactions and model changes. Ask your agent to save progress,
-recover earlier context, or prepare a handoff.
+A skill for Claude Code and Codex that keeps one Markdown log per conversation
+across compactions and model changes.
 
 <p align="center">
   <img src="assets/diagram.svg" alt="Conversation logs, context periods, and supporting files linked through a shared memory index" width="800"/>
@@ -41,20 +40,20 @@ Start a new Codex session after installation.
 
 ## Use
 
-Ask your agent to log progress, recover context from past conversations, or
-prepare a handoff for future ones. Ask to archive completed conversations when
-useful. You can also invoke `simple-session-memory` directly.
+Ask your agent to save progress, recover context from past conversations, or
+prepare a handoff. You can also invoke `simple-session-memory` directly.
 
-Write memory on request or through an established workflow's instructions,
-including autonomous workflows. Each checkpoint updates current state and next
-steps, preserves history by context period, and recovers missing earlier work
-from available transcripts. Sources and gaps are recorded.
+Your agent writes to memory when you request it or an established workflow
+instructs it to, including autonomous workflows. Each log update records current
+state and next steps, groups history into periods separated by compactions, and
+recovers missing earlier work from available transcripts. The log identifies
+sources and gaps.
 
 Logs and important supporting files live in dated folders under `.agents/memory/`,
 linked from `index.md`. An existing project memory location takes precedence.
 For orientation at startup, add an index pointer to `AGENTS.md` or `CLAUDE.md`.
 
-You can also ask your agent to archive old memory logs into concise summaries,
+Ask your agent to archive completed conversations into concise summaries,
 keeping important supporting files alongside them and preserving the originals
 in a ZIP.
 
