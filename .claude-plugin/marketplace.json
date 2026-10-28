@@ -1,25 +1,25 @@
 {
-  "name": "simple-session-memory-for-agents",
+  "name": "simple-conversation-memory-for-agents",
   "owner": {
     "name": "CobuterMan"
   },
-  "description": "Simple session memory for coding agents and autonomous workflows.",
+  "description": "Conversation memory for coding agents and autonomous workflows.",
   "plugins": [
     {
-      "name": "simple-session-memory",
-      "description": "Save progress, recover context, prepare handoffs, and archive completed conversations on request or through an established workflow.",
-      "version": "1.0.1",
+      "name": "simple-conversation-memory",
+      "description": "Keep one log per conversation: save progress, recover context, prepare continuation, and archive completed conversations on request or through an established workflow.",
+      "version": "1.1.0",
       "author": {
         "name": "CobuterMan"
       },
-      "homepage": "https://github.com/sdi2200262/simple-session-memory-for-agents",
-      "repository": "https://github.com/sdi2200262/simple-session-memory-for-agents",
+      "homepage": "https://github.com/sdi2200262/simple-conversation-memory-for-agents",
+      "repository": "https://github.com/sdi2200262/simple-conversation-memory-for-agents",
       "license": "MIT",
       "source": "./",
       "category": "productivity",
       "tags": [
         "memory",
-        "session",
+        "conversation",
         "compaction",
         "handoff"
       ]

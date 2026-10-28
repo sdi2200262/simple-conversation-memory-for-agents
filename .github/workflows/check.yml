@@ -34,7 +34,7 @@ jobs:
           print('Marketplace metadata and assistant paths agree.')
           PYTHON
       - name: Check skill copies
-        run: diff claude/skills/simple-session-memory/SKILL.md codex/skills/simple-session-memory/SKILL.md
+        run: diff claude/skills/simple-conversation-memory/SKILL.md codex/skills/simple-conversation-memory/SKILL.md
       - name: Validate manifests
         run: |
           python3 -m json.tool .claude-plugin/plugin.json > /dev/null
